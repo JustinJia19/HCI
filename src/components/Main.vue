@@ -34,31 +34,27 @@
   
         <!-- 中间推荐和轮播 -->
         <section class="banner-section">
-          <div class="carousel-container">
-            <div class="carousel-container" 
-     @mouseenter="stopAutoPlay" 
-     @mouseleave="startAutoPlay">
-    <!-- 轮播项 -->
-    <div v-for="(_, index) in slidesLength" 
-        :key="index" 
-        class="slide-item" 
-        :class="{ active: currentSlideIndex === index }">
-      <img :src="`image${index+1}.jpg`" :alt="`图片${index+1}`">
-    </div>
+          <!-- 轮播图部分 -->
+    <div class="carousel-container" 
+         @mouseenter="stopAutoPlay" 
+         @mouseleave="startAutoPlay">
+      <div v-for="(slide, index) in slides" 
+           :key="index"
+           class="slide-item" 
+           :class="{ active: currentSlideIndex === index }">
+        <img :src="slide.img" :alt="slide.alt">
+      </div>
 
-    <!-- 控制按钮 -->
-    <button class="carousel-control prev" @click="plusSlides(-1)">&#10094;</button>
-    <button class="carousel-control next" @click="plusSlides(1)">&#10095;</button>
+      <button class="carousel-control prev" @click="prevSlide">‹</button>
+      <button class="carousel-control next" @click="nextSlide">›</button>
 
-    <!-- 导航点 -->
-    <div class="carousel-dots">
-      <span v-for="(_, index) in slidesLength" 
-            :key="index" 
-            class="dot" 
-            :class="{ active: currentSlideIndex === index }" 
-            @click="currentSlide(index)"></span>
-    </div>
-  </div>
+      <div class="carousel-dots">
+        <span v-for="(dot, dotIndex) in slides" 
+              :key="dotIndex" 
+              class="dot" 
+              :class="{ active: currentSlideIndex === dotIndex }" 
+              @click="jumpToSlide(dotIndex)"></span>
+      </div>
 </div>
 </section>
   
@@ -108,7 +104,7 @@ export default {
   name: 'BlueThemePage',
   data() {
     return {
-      // 原有数据
+      // 原有待办事项数据
       todos: [
         { text: '完成数据结构课后习题', completed: false },
         { text: '准备项目进展汇报PPT', completed: false },
@@ -116,47 +112,57 @@ export default {
         { text: '复习数列极限', completed: false }
       ],
       
-      // 新增轮播相关数据
+      // 轮播图数据
       currentSlideIndex: 0,
       autoPlayInterval: null,
-      slidesLength: 3 // 根据实际图片数量设置
+      slides: [
+        {
+          img: require('@/resource/cycle1.jpg'),
+          alt: '图片1'
+        },
+        {
+          img: require('@/resource/cycle2.jpg'),
+          alt: '图片2'
+        },
+        {
+          img: require('@/resource/cycle3.png'),
+          alt: '图片3'
+        }
+      ]
     }
   },
   methods: {
     // 原有方法
     go() {
-      this.$router.push('/exam')
+      this.$router.push('/work')
     },
     toggleTodo(index) {
       this.todos[index].completed = !this.todos[index].completed
     },
 
-    // 新增轮播方法
-    showSlides(n) {
-      if (n >= this.slidesLength) this.currentSlideIndex = 0
-      if (n < 0) this.currentSlideIndex = this.slidesLength - 1
+    // 轮播图方法
+    nextSlide() {
+      this.currentSlideIndex = (this.currentSlideIndex + 1) % this.slides.length
     },
-    plusSlides(n) {
-      this.showSlides(this.currentSlideIndex += n)
+    prevSlide() {
+      this.currentSlideIndex = (this.currentSlideIndex - 1 + this.slides.length) % this.slides.length
     },
-    currentSlide(n) {
-      this.currentSlideIndex = n
+    jumpToSlide(index) {
+      this.currentSlideIndex = index
     },
     startAutoPlay() {
       this.autoPlayInterval = setInterval(() => {
-        this.plusSlides(1)
-      }, 5000)
+        this.nextSlide()
+      }, 3000)
     },
     stopAutoPlay() {
       clearInterval(this.autoPlayInterval)
     }
   },
   mounted() {
-    // 初始化自动播放
     this.startAutoPlay()
   },
   beforeUnmount() {
-    // 清除定时器
     this.stopAutoPlay()
   }
 }
