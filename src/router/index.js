@@ -18,9 +18,14 @@ const routes = [
     component: () => import('@/components/AppSearch.vue'), // 搜索页面
   },
   {
+    path: '/book',
+    name: 'book',
+    component: () => import('@/components/AppBook.vue'), // 搜索页面
+  },
+  {
     path: '/main',
     name: 'main',
-    component: () => import('@/components/Main.vue'), // 主页面
+    component: () => import('@/components/AppMain.vue'), // 主页面
   },
   {
     // path: '/', // 默认路径

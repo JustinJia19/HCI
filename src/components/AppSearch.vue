@@ -2,12 +2,12 @@
   <div class="app-container">
     <!-- 顶部导航栏 -->
     <header class="header">
-        <div class="logo">高数超好学</div>
+      <div class="logo"><router-link to="/main">高数超好学</router-link></div>
         <nav class="nav">
-          <router-link to="/work">课程</router-link>
+          <a href="#">课程</a>
           <a href="#">数字教材</a>
           <a href="#">学校</a>
-          <router-link to="/exam">考研</router-link>
+          <a href="#">考研</a>
         </nav>
         <div class="user-section">
           <span style="margin-right: 10px;">Hi，小郑</span>
@@ -131,5 +131,14 @@
     display: flex;
     align-items: center;
   }
-  
+  /* 修正后的全局样式（推荐） */
+  a.router-link-active,
+  a.router-link-exact-active {
+    color: inherit !important;        /* 强制继承父级颜色 */
+    text-decoration: none !important; /* 强制去除下划线 */
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 </style>
