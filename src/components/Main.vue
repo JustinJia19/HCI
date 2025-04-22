@@ -11,7 +11,7 @@
         </nav>
         <div class="user-section">
           <span style="margin-right: 10px;">Hi，小郑</span>
-          <button class="search-btn">搜索</button>
+          <button class="search-btn" @click="goSearch">搜索</button>
         </div>
       </header>
   
@@ -74,7 +74,7 @@
             {{ item.text }}
           </li>
         </ul>
-        <button class="my-goal" @click="go">今日计划</button>
+        <button class="my-goal" @click="goSearch">今日计划</button>
       </aside>
       </main>
   
@@ -145,8 +145,8 @@ export default {
   },
   methods: {
     // 跳转方法
-    go() {
-      this.$router.push('/work')
+    goSearch() {
+      this.$router.push('/search')
     },
     toggleTodo(index) {
       this.todos[index].completed = !this.todos[index].completed

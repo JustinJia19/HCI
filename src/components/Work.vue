@@ -2,7 +2,7 @@
     <div class="app-container">
       <!-- 顶部导航栏 -->
       <header class="header">
-        <div class="logo">高数超好学</div>
+        <div class="logo"><router-link to="/main">高数超好学</router-link></div>
         <nav class="nav">
           <router-link to="/work">课程</router-link>
           <a href="#">数字教材</a>
@@ -11,7 +11,7 @@
         </nav>
         <div class="user-section">
           <span style="margin-right: 10px;">Hi，小郑</span>
-          <button class="search-btn">搜索</button>
+          <button class="search-btn" @click="goSearch">搜索</button>
         </div>
       </header>
 
@@ -168,6 +168,9 @@
       }
     },
     methods: {
+      goSearch() {
+      this.$router.push('/search')
+    },
       selectChapter(index) {
         this.currentChapterIndex = index;
         this.currentVideoIndex = 0;
@@ -458,6 +461,16 @@
     padding: 0 1rem;
     margin-left: 0.5rem;
     border-radius: 5px;
+  }
+  /* 修正后的全局样式（推荐） */
+  a.router-link-active,
+  a.router-link-exact-active {
+    color: inherit !important;        /* 强制继承父级颜色 */
+    text-decoration: none !important; /* 强制去除下划线 */
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
   }
   </style>
   

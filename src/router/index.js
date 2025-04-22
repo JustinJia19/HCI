@@ -10,7 +10,12 @@ const routes = [
   {
     path: '/work',
     name: 'work',
-    component: () => import('@/components/Work.vue'), // 主页面
+    component: () => import('@/components/Work.vue'), // 课程页面
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: () => import('@/components/AppSearch.vue'), // 搜索页面
   },
   {
     path: '/main',
