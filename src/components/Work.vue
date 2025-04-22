@@ -1,5 +1,20 @@
 <template>
     <div class="app-container">
+      <!-- 顶部导航栏 -->
+      <header class="header">
+        <div class="logo">高数超好学</div>
+        <nav class="nav">
+          <router-link to="/work">课程</router-link>
+          <a href="#">数字教材</a>
+          <a href="#">学校</a>
+          <router-link to="/exam">考研</router-link>
+        </nav>
+        <div class="user-section">
+          <span style="margin-right: 10px;">Hi，小郑</span>
+          <button class="search-btn">搜索</button>
+        </div>
+      </header>
+
       <div class="main-layout">
         <!-- 视频播放区 + 左侧目录 -->
         <section class="video-and-sidebar">
@@ -141,7 +156,7 @@
         return this.chapters[this.currentChapterIndex];
       },
       currentVideoSrc() {
-        return "https://ali-cdn.xuetangx.com/bd4ca466779b0b21-10.mp4?auth_key=1745239371-0-0-588868e37c677726eb979b54ae96b56d"; // 可根据章节生成实际地址
+        return "https://ali-cdn.xuetangx.com/796f6a36b7329309-10.mp4?auth_key=1745298654-0-0-1447b1f00d7e19a5512e66711e7b0d4a"; // 可根据章节生成实际地址
       },
       currentQuestion() {
         return this.questions[this.currentQuestionIndex];
@@ -207,9 +222,36 @@
   .app-container {
     font-family: 'Arial', sans-serif;
     background-color: #f2f7fb;
+    color: #333;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0057b8;
     padding: 1rem;
-    min-height: 100vh;
-    overflow-y: auto;
+    color: white;
+  }
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: white;
+  }
+  .user-section {
+    display: flex;
+    align-items: center;
+  }
+  .search-btn {
+    background-color: #007fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
   }
   .main-layout {
     display: flex;
@@ -313,12 +355,17 @@
     cursor: pointer;
   }
   .check-btn {
-    background: #007fff;
+    background-color: #007fff;
     border: none;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1rem;
     color: white;
-    border-radius: 20px; /* 圆角矩形 */
-    margin-top: 0.5rem;
+    cursor: pointer;
+    /* 强制关键属性 */
+    border-radius: 5px !important; 
+    /* 使用更具体的选择器 */
+    min-width: 90px !important;
+    /* 阻断继承 */
+    writing-mode: horizontal-tb !important;
   }
   .feedback {
     margin-top: 0.5rem;

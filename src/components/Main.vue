@@ -21,14 +21,14 @@
         <aside class="sidebar">
           <h3>精品</h3>
           <ul>
-            <li>极限的定义与性质</li>
-            <li>函数的连续性</li>
-            <li>导数的定义与计算</li>
-            <li>高阶导数与微分</li>
-            <li>导数的应用</li>
-            <li>不定积分</li>
-            <li>定积分的应用</li>
-            <li>一阶微分方程</li>
+            <router-link to="/work">极限的定义与性质</router-link><br><br>
+            <router-link to="/work">函数的连续性</router-link><br><br>
+            <router-link to="/work">导数的定义与计算</router-link><br><br>
+            <router-link to="/work">高阶导数与微分</router-link><br><br>
+            <router-link to="/work">导数的应用</router-link><br><br>
+            <router-link to="/work">不定积分</router-link><br><br>
+            <router-link to="/work">定积分的应用</router-link><br><br>
+            <router-link to="/work">一阶微分方程</router-link><br><br>
           </ul>
         </aside>
   
@@ -80,19 +80,31 @@
   
       <!-- 最近直播 -->
       <section class="live-section">
-        <h3>最近直播</h3>
+        <h3>最近课程</h3>
         <div class="live-list">
           <div class="live-card">
-            <span class="status live">直播中</span>
-            <p>【26考研】全科400分备考攻略</p>
+            <span class="status live">已完结</span>
+            <p>【26考研】高数部分备考全攻略</p>
           </div>
           <div class="live-card">
-            <span class="status live">直播中</span>
-            <p>零基础入门C+Python人工智能</p>
+            <span class="status live">已完结</span>
+            <p>多元微分学在实际中的应用</p>
           </div>
           <div class="live-card">
-            <span class="status upcoming">未开始</span>
-            <p>四六级课程规划，一节课搞定40分！</p>
+            <span class="status live">已完结</span>
+            <p>不定积分重难点总结</p>
+          </div>
+          <div class="live-card">
+            <span class="status live">已完结</span>
+            <p>三月模拟卷讲解</p>
+          </div>
+          <div class="live-card">
+            <span class="status upcoming">更新中</span>
+            <p>从不定积分到定积分，一个视频入门积分计算</p>
+          </div>
+          <div class="live-card">
+            <span class="status upcoming">更新中</span>
+            <p>一个视频搞定极限计算</p>
           </div>
         </div>
       </section>
@@ -104,7 +116,7 @@ export default {
   name: 'BlueThemePage',
   data() {
     return {
-      // 原有待办事项数据
+      // 待办事项数据
       todos: [
         { text: '完成数据结构课后习题', completed: false },
         { text: '准备项目进展汇报PPT', completed: false },
@@ -132,7 +144,7 @@ export default {
     }
   },
   methods: {
-    // 原有方法
+    // 跳转方法
     go() {
       this.$router.push('/work')
     },
@@ -171,7 +183,7 @@ export default {
 
   
   <style scoped>
-  /* 新增图片相关样式 */
+  /* 图片相关样式 */
   .carousel-container {
     position: relative;
     max-width: 1000px;
@@ -417,6 +429,16 @@ export default {
   }
   .status.upcoming {
     color: orange;
+  }
+  /* 修正后的全局样式（推荐） */
+  a.router-link-active,
+  a.router-link-exact-active {
+    color: inherit !important;        /* 强制继承父级颜色 */
+    text-decoration: none !important; /* 强制去除下划线 */
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
   }
   </style>
   
