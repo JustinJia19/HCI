@@ -8,6 +8,11 @@ const routes = [
     component: () => import('@/components/Exam.vue'), // 使用别名路径
   },
   {
+    path: '/ai',
+    name: 'ai',
+    component: () => import('@/components/AppAI.vue'), // AI界面
+  },
+  {
     path: '/work',
     name: 'work',
     component: () => import('@/components/Work.vue'), // 课程页面
