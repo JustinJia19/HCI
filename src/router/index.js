@@ -13,6 +13,11 @@ const routes = [
     component: () => import('@/components/AppAI.vue'), // AI界面
   },
   {
+    path: '/wrong',
+    name: 'wrong',
+    component: () => import('@/components/AppWrong.vue'), // 错题本界面
+  },
+  {
     path: '/work',
     name: 'work',
     component: () => import('@/components/Work.vue'), // 课程页面

@@ -24,9 +24,10 @@
             <li class="active">智能答疑</li>
             <li>知识图谱</li>
             <li>学习计划</li>
-            <li>错题本</li>
             <li>学习报告</li>
           </ul>
+
+          <router-link to="/wrong" class="custom-router-link">错题本</router-link>
         </aside>
   
         <!-- 中间问答区 -->
@@ -336,4 +337,15 @@
     color: inherit;
     text-decoration: none;
   }
+  .custom-router-link {
+    color: #0057b8;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.custom-router-link:hover {
+  color: #007fff; /* 鼠标悬停时的颜色 */
+}
   </style>

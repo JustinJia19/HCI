@@ -156,7 +156,7 @@
         return this.chapters[this.currentChapterIndex];
       },
       currentVideoSrc() {
-        return "https://ali-cdn.xuetangx.com/796f6a36b7329309-10.mp4?auth_key=1745298654-0-0-1447b1f00d7e19a5512e66711e7b0d4a"; // 可根据章节生成实际地址
+        return "https://ali-cdn.xuetangx.com/796f6a36b7329309-10.mp4?auth_key=1745400341-0-0-bd23b676e823074200568aa422ccfe6b"; // 可根据章节生成实际地址
       },
       currentQuestion() {
         return this.questions[this.currentQuestionIndex];

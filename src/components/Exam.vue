@@ -335,7 +335,7 @@
       
       // 复习错题
       reviewWrongQuestions() {
-        alert('跳转到错题复习模式');
+        this.$router.push('/wrong')
       },
       
       // 开始新考试
