@@ -5,7 +5,7 @@
         <div class="logo"><router-link to="/main">高数超好学</router-link></div>
         <nav class="nav">
           <router-link to="/work">课程</router-link>
-          <a href="#">数字教材</a>
+          <router-link to="/book">数字教材</router-link>
           <a href="#">学校</a>
           <router-link to="/exam">考研</router-link>
         </nav>
@@ -17,19 +17,22 @@
   
       <!-- 书籍展示区域 -->
       <div class="book-grid">
-        <div v-for="(book, index) in 6" :key="index" class="book-item">
-          <div class="book-cover">
-            <div class="cover-image"></div>
-          </div>
-          <div class="book-info">
-            <div class="book-title">计算机组成原理（第二版）</div>
-            <div class="book-author">王小明 等编著</div>
-            <div class="book-description">
-              本书系统介绍计算机系统组成结构与工作原理，涵盖数字逻辑、指令系统等核心内容...
-            </div>
-          </div>
+      <div v-for="(book, index) in books" :key="index" class="book-item" @click="goBook">
+        <div class="book-cover">
+          <img 
+            :src="book.cover" 
+            class="cover-image" 
+            alt="教材封面"
+            @error="handleImageError"
+          >
+        </div>
+        <div class="book-info">
+          <div class="book-title">{{ book.title }}</div>
+          <div class="book-author">{{ book.author }}</div>
+          <div class="book-description">{{ book.description }}</div>
         </div>
       </div>
+    </div>
   
       <!-- 底部导航 -->
       <div class="bottom-nav">
@@ -51,10 +54,55 @@
   
   <script>
   export default{
+    data() {
+    return {
+      books: [ // 将books移到data中
+        {
+          cover: require('@/resource/cover1.png'), // 本地图片
+      title: '高等数学',
+      author: '赵利娟 王理峰等编著',
+      description: '高等职业教育课程改革系列教材'
+    },
+    {
+      cover: require('@/resource/cover2.png'), // 网络图片
+      title: '高等数学精选题解1600题（下册）',
+      author: '张天德 孙钦福 著',
+      description: '790道习题及参考答案，170余个知识点精讲视频'
+    },
+    {
+      cover: require('@/resource/cover3.png'), // 本地图片
+      title: '高等数学',
+      author: '甘建强 等编著',
+      description: '国防科技大学出版社出版，高等教育精品教材'
+    },
+    {
+      cover: require('@/resource/cover4.png'), // 网络图片
+      title: '高等数学',
+      author: '周光亚 张宏伟 著',
+      description: '全国高职高专教育十一五规划教材'
+    },
+    {
+      cover: require('@/resource/cover5.png'), // 本地图片
+      title: '高等数学（微课版）',
+      author: '王妍 斯日古冷 主编',
+      description: '高等职业教育公共基础课教材'
+    },
+    {
+      cover: require('@/resource/cover6.png'), // 网络图片
+      title: '高等数学（第二版） 下册',
+      author: '高军安 著',
+      description: '高等教育出版社出版，高等学校教材'
+    }
+      ]
+    }
+  },
     methods: {
         goSearch() {
       this.$router.push('/search')
-    }
+      },
+      goBook(){
+        window.location.href = 'https://weread.qq.com/web/reader/00b32b40813ab7e51g019e27k16732dc0161679091c5aeb1'; // 跳转到指定的外部链接
+      }
     }
   }
   </script>
@@ -143,16 +191,24 @@
   }
   
   .book-cover {
-    height: 180px;
-    background: #e9ecef;
-    position: relative;
-  }
-  
-  .cover-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  height: 200px; /* 增大封面高度 */
+  background: #f0f2f5; /* 默认背景色 */
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 保持比例填充 */
+  transition: transform 0.3s ease;
+}
+
+/* 添加悬停放大效果 */
+.book-item:hover .cover-image {
+  transform: scale(1.05);
+}
+
   
   /* 书籍信息 */
   .book-info {

@@ -5,7 +5,7 @@
         <div class="logo"><router-link to="/main">高数超好学</router-link></div>
         <nav class="nav">
           <router-link to="/work">课程</router-link>
-          <a href="#">数字教材</a>
+          <router-link to="/book">数字教材</router-link>
           <a href="#">学校</a>
           <router-link to="/exam">考研</router-link>
         </nav>
