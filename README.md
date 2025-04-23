@@ -1,24 +1,21 @@
-# vue_web
+# “高数超好学”系统界面原型
 
-## Project setup
-```
-npm install
-```
+## 使用工具
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Vue3 + Element Plus
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 已有界面（按照添加时间排序）
 
-### Lints and fixes files
-```
-npm run lint
-```
+1.主界面（首页）
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+2.课程界面
+
+3.考研专区界面
+
+4.搜索界面
+
+5.数字教材界面
+
+6.数字学习伴侣界面
+
+7.错题本界面
