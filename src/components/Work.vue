@@ -145,7 +145,7 @@
         feedback: "",
   
         comments: [
-          { user: "小张", text: "这一节讲得非常棒！👍", likes: 3 },
+          { user: "小张", text: "这一节讲得非常棒！原来有理函数的密度积分是一个确定的值👍", likes: 3 },
           { user: "学习者007", text: "有无配套练习册呢？", likes: 1 }
         ],
         newCommentText: ""
@@ -156,7 +156,7 @@
         return this.chapters[this.currentChapterIndex];
       },
       currentVideoSrc() {
-        return "https://ali-cdn.xuetangx.com/796f6a36b7329309-10.mp4?auth_key=1745400341-0-0-bd23b676e823074200568aa422ccfe6b"; // 可根据章节生成实际地址
+        return "https://ali-cdn.xuetangx.com/796f6a36b7329309-10.mp4?auth_key=1745580234-0-0-443369ab3f33db50476eb6034d680853"; // 可根据章节生成实际地址
       },
       currentQuestion() {
         return this.questions[this.currentQuestionIndex];

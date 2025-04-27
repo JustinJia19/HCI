@@ -19,12 +19,12 @@
       <main class="main-content">
         <!-- 左侧分类 -->
         <aside class="sidebar">
-          <h3>精品</h3>
+          <h3>章节</h3>
           <ul>
             <router-link to="/work">极限的定义与性质</router-link><br><br>
             <router-link to="/work">函数的连续性</router-link><br><br>
             <router-link to="/work">导数的定义与计算</router-link><br><br>
-            <router-link to="/work">高阶导数与微分</router-link><br><br>
+            <router-link to="/work">概率密度函数</router-link><br><br>
             <router-link to="/work">导数的应用</router-link><br><br>
             <router-link to="/work">不定积分</router-link><br><br>
             <router-link to="/work">定积分的应用</router-link><br><br>
@@ -118,9 +118,9 @@ export default {
     return {
       // 待办事项数据
       todos: [
-        { text: '完成数据结构课后习题', completed: false },
-        { text: '准备项目进展汇报PPT', completed: false },
-        { text: '复习操作系统内存管理章节', completed: false },
+        { text: '完成多元微分课后习题', completed: false },
+        { text: '模拟卷订正', completed: false },
+        { text: '整理不定积分错题', completed: false },
         { text: '复习数列极限', completed: false }
       ],
       
