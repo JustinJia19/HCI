@@ -21,7 +21,7 @@ Vue3 + Element Plus
 7.错题本界面
 
 ## 项目结构
-···
+```
 src/
 ├── assets/
 ├── resource/            # 静态资源
@@ -34,4 +34,4 @@ src/
 │   └──Exam.vue
 │   └── Work.vue
 └── router/            # 路由配置
-···
+```
