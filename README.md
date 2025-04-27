@@ -19,3 +19,17 @@ Vue3 + Element Plus
 6.数字学习伴侣界面
 
 7.错题本界面
+
+## 项目结构
+src/
+├── assets/
+├── resource/            # 静态资源
+├── components/        # 公共界面
+│   ├── AppAI.vue
+│   └── AppBook.vue
+│   └── AppMain.vue
+│   └── AppSearch.vue
+│   └── AppWrong.vue
+│   └──Exam.vue
+│   └── Work.vue
+└── router/            # 路由配置
