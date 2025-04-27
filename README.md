@@ -35,3 +35,10 @@ src/
 │   └── Work.vue
 └── router/            # 路由配置
 ```
+## 运行说明
+```
+# 安装依赖
+npm install
+# 启动服务器
+npm run serve
+```
